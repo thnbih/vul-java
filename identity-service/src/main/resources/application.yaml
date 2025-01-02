@@ -1,0 +1,52 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /identity
+spring:
+  application:
+    name: identity-service
+  datasource:
+    url: "jdbc:mysql://localhost:3307/identity_service"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password: anhproqn999
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9094
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://keycloak.website/realms/movie-web
+
+idp:
+  url: https://keycloak.website
+  client-id: Movie_web
+  client-secret: J0x148IBCmFNDn94eiomwyNgbNCzBuuS
+
+app:
+  services:
+    profile: http://localhost:8081/profile
+
+
+keycloak:
+  realm: movie-web
+  adminClientId: admin-cli
+  adminClientSecret: k93fNyuPIOVWFB1qVSwXnXvM9JMueh9C
+  client: Movie_web
+  urls:
+    auth: https://keycloak.website
+
+
+google:
+  clientId: 762822258511-fleddar4d17s9a6gm7e21u2d6hshrqo3.apps.googleusercontent.com
+  clientSecret: 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
+  redirectUri: http://localhost:3000/authenticate
+  recaptcha:
+    secret: 6Lc_35QqAAAAAC-L4OcklrnoHE9lUK7iG6v8Lg8H
