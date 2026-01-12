@@ -20,7 +20,7 @@
 		<lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
 		<spotless.version>2.43.0</spotless.version>
 		<spring-cloud.version>2023.0.1</spring-cloud.version>
-		<keycloak.version>22.0.4</keycloak.version>
+		<keycloak.version>26.0.8</keycloak.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -177,7 +177,7 @@
 				<version>${spotless.version}</version>
 				<configuration>
 					<java>
-						<removeUnusedImports />
+						<removeUnusedImports/>
 						<toggleOffOn/>
 						<trimTrailingWhitespace/>
 						<endWithNewline/>
